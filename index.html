@@ -3,32 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OpenWidget Custom Button + GTM</title>
-<style>
-  /* 自绘按钮基础样式 */
-  #custom-openwidget-btn {
-    position: fixed;
-    z-index: 999999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    color: white;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    transition: transform 0.1s;
-  }
-
-  #custom-openwidget-btn:active {
-    transform: scale(0.95);
-  }
-
-  /* 隐藏原始 Widget 按钮 */
-  .css-1n4pdgy, .css-7pd0n6 {
-    display: none !important;
-  }
-</style>
+<title>OpenWidget + GTM</title>
 </head>
 <body>
 
@@ -41,94 +16,16 @@
 })(window,document,'script','dataLayer','GTM-ND9SKQL4');
 </script>
 
-<!-- 自绘按钮 -->
-<button id="custom-openwidget-btn">Chat</button>
-
+<!-- 强制触发 Widget 重排，确保移动端按钮大号显示 -->
 <script>
-(function(){
-  var btn = document.getElementById('custom-openwidget-btn');
-
-  // 根据屏幕大小设置按钮尺寸
-  function setButtonSize(){
-    if(window.innerWidth <= 768){ // 移动端
-      btn.style.width = '140px';
-      btn.style.height = '140px';
-      btn.style.bottom = '30px';
-      btn.style.left = '40px';
-      btn.style.right = 'auto';
-      btn.style.fontSize = '18px';
-      btn.style.backgroundColor = '#94f0bf';
-      btn.style.borderRadius = '50%';
-    } else { // 桌面端
-      btn.style.width = '120px';
-      btn.style.height = '120px';
-      btn.style.bottom = '30px';
-      btn.style.right = '40px';
-      btn.style.left = 'auto';
-      btn.style.fontSize = '16px';
-      btn.style.backgroundColor = '#F19144';
-      btn.style.borderRadius = '50%';
+window.addEventListener('load', function(){
+    var widgetContainer = document.getElementById('chat-widget-container');
+    if(widgetContainer){
+        // 短暂隐藏再显示，触发浏览器重排，让 Widget 自适应移动端
+        widgetContainer.style.display = 'none';
+        setTimeout(() => { widgetContainer.style.display = 'block'; }, 50);
     }
-  }
-
-  setButtonSize();
-  window.addEventListener('resize', setButtonSize);
-
-  // 隐藏原按钮（轮询）
-  var hideOriginal = function(){
-    var originals = document.querySelectorAll('.css-1n4pdgy, .css-7pd0n6');
-    originals.forEach(function(el){
-      el.style.display = 'none';
-    });
-  };
-  var attempts = 0;
-  var maxAttempts = 30;
-  var interval = setInterval(function(){
-    hideOriginal();
-    attempts++;
-    if(attempts > maxAttempts) clearInterval(interval);
-  }, 500);
-
-  // 点击自绘按钮触发 OpenWidget
-  function bindCustomButton(){
-    btn.addEventListener('click', function(){
-      if(window.LC_API && typeof window.LC_API.open === 'function'){
-        LC_API.open();
-      } else {
-        // 重试几次保证 Widget 已加载
-        var retries = 10;
-        var attempt = 0;
-        var retryInterval = setInterval(function(){
-          if(window.LC_API && typeof window.LC_API.open === 'function'){
-            LC_API.open();
-            clearInterval(retryInterval);
-          } else if(attempt >= retries){
-            clearInterval(retryInterval);
-            console.log('OpenWidget API 未加载');
-          }
-          attempt++;
-        }, 300);
-      }
-    });
-  }
-
-  // 绑定点击事件，等待 LC_API ready
-  function waitForLCAPI(){
-    if(window.LC_API && typeof window.LC_API.on === 'function'){
-      LC_API.on('ready', bindCustomButton);
-    } else {
-      var checkInterval = setInterval(function(){
-        if(window.LC_API && typeof window.LC_API.on === 'function'){
-          clearInterval(checkInterval);
-          LC_API.on('ready', bindCustomButton);
-        }
-      }, 300);
-    }
-  }
-
-  waitForLCAPI();
-
-})();
+});
 </script>
 
 </body>
