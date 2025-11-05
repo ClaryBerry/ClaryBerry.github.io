@@ -3,18 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OpenWidget Demo with Custom Button</title>
+  <title>OpenWidget with Custom Button + GTM</title>
   <style>
-    /* 隐藏原始 Widget 按钮 */
-    .css-1n4pdgy {
-      display: none !important;
-    }
-
     /* 自绘按钮样式 */
     #custom-openwidget-btn {
-      width: 120px;
-      height: 120px;
-      background-color: #F19144; /* 桌面端橙色 */
+      width: 140px;
+      height: 140px;
+      background-color: #FF5722; /* 桌面端橙色 */
       border-radius: 50%;
       position: fixed;
       bottom: 30px;
@@ -32,32 +27,64 @@
       transition: transform 0.1s;
     }
 
-    /* 点击动画效果 */
+    /* 点击缩放效果 */
     #custom-openwidget-btn:active {
       transform: scale(0.95);
+    }
+
+    /* 隐藏原始按钮（桌面端 class 示例） */
+    .css-1n4pdgy {
+      display: none !important;
     }
   </style>
 </head>
 <body>
 
-  <!-- 自绘替代按钮 -->
-  <button id="custom-openwidget-btn">Chat</button>
-
-  <!-- OpenWidget 官方 JS 引入（示例） -->
+  <!-- GTM Container -->
   <script>
-    // 这里假设 OpenWidget 已经加载
-    // 如果你在网页中有原始 Widget 脚本，可以直接使用 window.LC_API
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-ND9SKQL4');
   </script>
 
+  <!-- 自绘按钮 -->
+  <button id="custom-openwidget-btn">Chat</button>
+
   <script>
-    // 点击自绘按钮触发 Widget
-    document.getElementById('custom-openwidget-btn').addEventListener('click', function(){
-      if(window.LC_API && typeof window.LC_API.open === 'function'){
-        window.LC_API.open(); // 打开聊天窗口
-      } else {
-        console.log('OpenWidget API 未加载');
-      }
+  (function(){
+    var btn = document.getElementById('custom-openwidget-btn');
+
+    // 安全点击事件：保证 LC_API 已加载
+    btn.addEventListener('click', function(){
+      var tryOpen = function(retries){
+        if(window.LC_API && typeof window.LC_API.open === 'function'){
+          LC_API.open();
+        } else if(retries > 0){
+          setTimeout(function(){ tryOpen(retries - 1); }, 300);
+        } else {
+          console.log('OpenWidget API 未加载');
+        }
+      };
+      tryOpen(10); // 最多尝试 10 次，每次间隔 300ms
     });
+
+    // 隐藏原按钮（反复尝试，防止 Widget 延迟渲染）
+    var hideOriginal = function(){
+      var originalBtn = document.querySelector('.css-1n4pdgy'); // 桌面端按钮 class
+      if(originalBtn){
+        originalBtn.style.display = 'none';
+      }
+    };
+    var attempts = 0;
+    var maxAttempts = 30;
+    var interval = setInterval(function(){
+      hideOriginal();
+      attempts++;
+      if(attempts > maxAttempts) clearInterval(interval);
+    }, 500);
+  })();
   </script>
 
 </body>
