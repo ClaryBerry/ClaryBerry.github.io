@@ -1,23 +1,64 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Get your design job done</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22256%22 height=%22256%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22central%22 text-anchor=%22middle%22 font-size=%2290%22>🚀</text></svg>" />
-  
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-ND9SKQL4');</script>
-  <!-- End Google Tag Manager -->
-  
-  </head>
-  <body>
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND9SKQL4"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-    <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenWidget Demo with Custom Button</title>
+  <style>
+    /* 隐藏原始 Widget 按钮 */
+    .css-1n4pdgy {
+      display: none !important;
+    }
+
+    /* 自绘按钮样式 */
+    #custom-openwidget-btn {
+      width: 120px;
+      height: 120px;
+      background-color: #F19144; /* 桌面端橙色 */
+      border-radius: 50%;
+      position: fixed;
+      bottom: 30px;
+      right: 40px;
+      z-index: 999999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      color: white;
+      font-size: 16px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: transform 0.1s;
+    }
+
+    /* 点击动画效果 */
+    #custom-openwidget-btn:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 自绘替代按钮 -->
+  <button id="custom-openwidget-btn">Chat</button>
+
+  <!-- OpenWidget 官方 JS 引入（示例） -->
+  <script>
+    // 这里假设 OpenWidget 已经加载
+    // 如果你在网页中有原始 Widget 脚本，可以直接使用 window.LC_API
+  </script>
+
+  <script>
+    // 点击自绘按钮触发 Widget
+    document.getElementById('custom-openwidget-btn').addEventListener('click', function(){
+      if(window.LC_API && typeof window.LC_API.open === 'function'){
+        window.LC_API.open(); // 打开聊天窗口
+      } else {
+        console.log('OpenWidget API 未加载');
+      }
+    });
+  </script>
+
+</body>
 </html>
