@@ -1,3 +1,5 @@
+console.log('main.js running');
+console.log('buttons found:', document.querySelectorAll('button').length);
 
 (function () {
   const TARGET_TEXT = 'Kontaktiere uns';
