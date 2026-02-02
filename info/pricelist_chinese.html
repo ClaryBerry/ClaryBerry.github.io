@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设计服务价目表 - Bestgraphic</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 12pt;
+            line-height: 1.5;
+            color: #000;
+            background: #fff;
+            padding: 15mm;
+        }
+        
+        .a4-container {
+            max-width: 180mm;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 20pt;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 25pt;
+            border-bottom: 3px solid #757AF5;
+            padding-bottom: 12pt;
+            color: #000;
+            letter-spacing: 1px;
+            page-break-after: avoid;
+        }
+        
+        h2 {
+            font-size: 15pt;
+            font-weight: bold;
+            margin-top: 22pt;
+            margin-bottom: 12pt;
+            color: #757AF5;
+            padding-left: 8px;
+            border-left: 5px solid #757AF5;
+            letter-spacing: 0.5px;
+            page-break-after: avoid;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 18pt;
+            font-size: 11pt;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #757AF5;
+            page-break-inside: avoid;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #757AF5 0%, #6a6fe8 100%);
+            color: #fff;
+            padding: 12pt 10pt;
+            text-align: left;
+            font-weight: bold;
+            border: none;
+            letter-spacing: 0.5px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        td {
+            padding: 12pt 10pt;
+            border: 1px solid #e8e8e8;
+            background: #fff;
+        }
+        
+        tr:hover td {
+            background: #fafbff;
+        }
+        
+        .price {
+            font-weight: bold;
+            font-size: 11pt;
+            color: #757AF5;
+        }
+        
+        .note {
+            background: linear-gradient(135deg, #f8f7ff 0%, #f3f1ff 100%);
+            padding: 12pt;
+            margin: 12pt 0;
+            border-left: 4px solid #757AF5;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            font-size: 10pt;
+            border-top: 1px solid #e8e8e8;
+            border-right: 1px solid #e8e8e8;
+            border-bottom: 1px solid #e8e8e8;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+            page-break-inside: avoid;
+        }
+        
+        .benefits {
+            background: repeating-linear-gradient(
+                45deg,
+                #f8f7ff,
+                #f8f7ff 10px,
+                #f3f1ff 10px,
+                #f3f1ff 20px
+            );
+            padding: 14pt;
+            margin: 12pt 0;
+            border: 1px solid #e8e8e8;
+            border-radius: 8px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+            page-break-inside: avoid;
+        }
+        
+        .benefits ul {
+            margin: 10pt 0 10pt 22pt;
+        }
+        
+        .benefits li {
+            margin: 6pt 0;
+            font-size: 10pt;
+            line-height: 1.6;
+        }
+        
+        .footer-info {
+            margin-top: 30pt;
+            padding-top: 18pt;
+            border-top: 2px solid #757AF5;
+            font-size: 10pt;
+            text-align: center;
+            color: #000;
+            page-break-inside: avoid;
+        }
+        
+        .footer-info strong {
+            font-size: 13pt;
+            color: #757AF5;
+        }
+        
+        /* 分页控制 */
+        .page-break-after {
+            page-break-after: always;
+        }
+        
+        /* 确保第一页内容不会溢出 */
+        .page1-content {
+            min-height: 800px;
+        }
+        
+        .print-btn {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #757AF5 0%, #6a6fe8 100%);
+            color: #fff;
+            padding: 14px 24px;
+            border: none;
+            cursor: pointer;
+            font-size: 11pt;
+            font-weight: bold;
+            z-index: 1000;
+            border-radius: 25px;
+            box-shadow: 0 4px 12px rgba(117, 122, 245, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .print-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(117, 122, 245, 0.4);
+        }
+        
+        @media print {
+            .print-btn {
+                display: none !important;
+            }
+            body {
+                padding: 10mm;
+            }
+            @page {
+                size: A4;
+                margin: 10mm;
+            }
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            /* 防止内容块被切断 */
+            table, .note, .benefits, h2 {
+                page-break-inside: avoid;
+            }
+            
+            /* 确保标题后立即分页 */
+            .page-break-after {
+                page-break-after: always !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">📄 打印 / 保存为PDF</button>
+
+    <div class="a4-container">
+        <h1>设计服务价目表</h1>
+
+        <h2>网页设计</h2>
+        <table>
+            <tr>
+                <th>服务</th>
+                <th>价格</th>
+            </tr>
+            <tr>
+                <td>单页网站设计</td>
+                <td class="price">€230</td>
+            </tr>
+             <tr>
+                <td>简历设计</td>
+                <td class="price">€120</td>
+            </tr>
+        </table>
+
+        <h2>亚马逊服务</h2>
+        <table>
+            <tr>
+                <th>服务</th>
+                <th>价格</th>
+            </tr>
+            <tr>
+                <td>完整Amazon A+内容</td>
+                <td class="price">€260</td>
+            </tr>
+            <tr>
+                <td>KDP书籍封面设计</td>
+                <td class="price">€45</td>
+            </tr>
+            <tr>
+                <td>KDP插图设计（每张）</td>
+                <td class="price">€25</td>
+            </tr>
+        </table>
+
+        <h2>Meta广告设计</h2>
+        <table>
+            <tr>
+                <th>服务</th>
+                <th>价格</th>
+            </tr>
+            <tr>
+                <td>视频广告制作</td>
+                <td class="price">€210/分钟</td>
+            </tr>
+            <tr>
+                <td>静态广告设计</td>
+                <td class="price">€40/张</td>
+            </tr>
+            <tr>
+                <td>动态广告设计</td>
+                <td class="price">€60/场景</td>
+            </tr>
+        </table>
+
+        <div class="note">
+            <strong>备注：</strong> Meta广告将以所有必需格式（横向/竖向）和分辨率提供。
+        </div>
+
+        <h2>数字头像服务</h2>
+        <table>
+            <tr>
+                <th>服务</th>
+                <th>价格</th>
+            </tr>
+            <tr>
+                <td>数字人+多场景</td>
+                <td class="price">€52</td>
+            </tr>
+            <tr>
+                <td>虚拟人像+Instagram帖子套餐</td>
+                <td class="price">€79</td>
+            </tr>
+            <tr>
+                <td>3D玩偶设计与打印</td>
+                <td class="price">€195</td>
+            </tr>
+        </table>
+
+        <div class="note">
+            <strong>备注：</strong> 虚拟人像+Instagram帖子套餐 - 会员可获得虚拟头像的持续更新。
+        </div>
+
+        <!-- 在这里强制分页 -->
+        <div class="page-break-after"></div>
+
+        <h2>私人设计师会员服务</h2>
+        <table>
+            <tr>
+                <th>服务</th>
+                <th>价格</th>
+            </tr>
+            <tr>
+                <td>月度会员</td>
+                <td class="price">€200/月 (=40积分)</td>
+            </tr>
+        </table>
+
+        <div class="benefits">
+            <strong>会员权益：</strong>
+            <ul>
+                <li>图片后期处理、色彩校正、内容补充、水印移除（每项任务2积分）</li>
+                <li>3个YouTube缩略图或Instagram微动画（30积分）</li>
+                <li>未使用的服务可转换为无时限的积分制服务</li>
+            </ul>
+        </div>
+
+        <h2>积分制服务</h2>
+        <table>
+            <tr>
+                <th>服务</th>
+                <th>所需积分</th>
+            </tr>
+            <tr>
+                <td>卡通角色设计</td>
+                <td class="price">5-10积分</td>
+            </tr>
+            <tr>
+                <td>证件照设计</td>
+                <td class="price">5-10积分</td>
+            </tr>
+            <tr>
+                <td>POD图样设计</td>
+                <td class="price">5-10积分</td>
+            </tr>
+        </table>
+
+        <div class="footer-info">
+            <strong>Bestgraphic 设计服务</strong><br><br>
+            所有服务均包含免费商用字体和素材。<br>
+            客户可选择购买付费素材。<br><br>
+            © 2026 bestgraphic. 版权所有。
+        </div>
+    </div>
+
+    <script>
+        window.onbeforeprint = function() {
+            console.log('打印流程已启动...');
+        };
+    </script>
+</body>
+</html>

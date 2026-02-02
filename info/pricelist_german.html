@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Services Preisliste - Bestgraphic</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 12pt;
+            line-height: 1.4;
+            color: #000;
+            background: #fff;
+            padding: 15mm;
+        }
+        
+        .a4-container {
+            max-width: 180mm;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 20pt;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 25pt;
+            border-bottom: 3px solid #757AF5;
+            padding-bottom: 12pt;
+            color: #000;
+            letter-spacing: 1px;
+            page-break-after: avoid;
+        }
+        
+        h2 {
+            font-size: 15pt;
+            font-weight: bold;
+            margin-top: 22pt;
+            margin-bottom: 12pt;
+            color: #757AF5;
+            padding-left: 8px;
+            border-left: 5px solid #757AF5;
+            letter-spacing: 0.5px;
+            page-break-after: avoid;
+        }
+        
+   table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 18pt;
+    font-size: 11pt;
+    border-radius: 8px;
+    overflow: hidden;
+}
+        
+        th {
+            background: linear-gradient(135deg, #757AF5 0%, #6a6fe8 100%);
+            color: #fff;
+            padding: 12pt 10pt;
+            text-align: left;
+            font-weight: bold;
+            border: none;
+            letter-spacing: 0.5px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        td {
+            padding: 12pt 10pt;
+            border: 1px solid #e8e8e8;
+            background: #fff;
+        }
+        
+        tr:hover td {
+            background: #fafbff;
+        }
+        
+        .price {
+            font-weight: bold;
+            font-size: 11pt;
+            color: #757AF5;
+        }
+        
+        .note {
+            background: linear-gradient(135deg, #f8f7ff 0%, #f3f1ff 100%);
+            padding: 12pt;
+            margin: 12pt 0;
+            border-left: 4px solid #757AF5;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            font-size: 10pt;
+            border-top: 1px solid #e8e8e8;
+            border-right: 1px solid #e8e8e8;
+            border-bottom: 1px solid #e8e8e8;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+            page-break-inside: avoid;
+        }
+        
+        .benefits {
+            background: repeating-linear-gradient(
+                45deg,
+                #f8f7ff,
+                #f8f7ff 10px,
+                #f3f1ff 10px,
+                #f3f1ff 20px
+            );
+            padding: 14pt;
+            margin: 12pt 0;
+            border: 1px solid #e8e8e8;
+            border-radius: 8px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+            page-break-inside: avoid;
+        }
+        
+        .benefits ul {
+            margin: 10pt 0 10pt 22pt;
+        }
+        
+        .benefits li {
+            margin: 6pt 0;
+            font-size: 10pt;
+            line-height: 1.6;
+        }
+        
+        .footer-info {
+            margin-top: 30pt;
+            padding-top: 18pt;
+            border-top: 2px solid #757AF5;
+            font-size: 10pt;
+            text-align: center;
+            color: #000;
+            page-break-inside: avoid;
+        }
+        
+        .footer-info strong {
+            font-size: 13pt;
+            color: #757AF5;
+        }
+        
+        /* 分页控制 */
+        .page-break-after {
+            page-break-after: always;
+        }
+        
+        /* 确保第一页内容不会溢出 */
+        .page1-content {
+            min-height: 800px;
+        }
+        
+        .print-btn {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #757AF5 0%, #6a6fe8 100%);
+            color: #fff;
+            padding: 14px 24px;
+            border: none;
+            cursor: pointer;
+            font-size: 11pt;
+            font-weight: bold;
+            z-index: 1000;
+            border-radius: 25px;
+            box-shadow: 0 4px 12px rgba(117, 122, 245, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .print-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(117, 122, 245, 0.4);
+        }
+        
+        @media print {
+            .print-btn {
+                display: none !important;
+            }
+            body {
+                padding: 10mm;
+            }
+            @page {
+                size: A4;
+                margin: 10mm;
+            }
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            /* 防止内容块被切断 */
+            table, .note, .benefits, h2 {
+                page-break-inside: avoid;
+            }
+            
+            /* 确保标题后立即分页 */
+            .page-break-after {
+                page-break-after: always !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">📄 Drucken / Speichern als PDF</button>
+
+    <div class="a4-container">
+        <h1>Design Services Preisliste</h1>
+
+        <h2>Webdesign</h2>
+        <table>
+            <tr>
+                <th>Service</th>
+                <th>Preis</th>
+            </tr>
+            <tr>
+                <td>One Pager Website</td>
+                <td class="price">€230</td>
+            </tr>
+        </table>
+
+        <h2>Amazon-Dienste</h2>
+        <table>
+            <tr>
+                <th>Service</th>
+                <th>Preis</th>
+            </tr>
+            <tr>
+                <td>Vollständige Amazon A+ Inhalte</td>
+                <td class="price">€260</td>
+            </tr>
+            <tr>
+                <td>KDP Buchcover</td>
+                <td class="price">€45</td>
+            </tr>
+            <tr>
+                <td>KDP Illustration (pro Stück)</td>
+                <td class="price">€25</td>
+            </tr>
+        </table>
+
+        <h2>Meta Werbung Design</h2>
+        <table>
+            <tr>
+                <th>Service</th>
+                <th>Preis</th>
+            </tr>
+            <tr>
+                <td>Video-Werbung</td>
+                <td class="price">€210/Minute</td>
+            </tr>
+            <tr>
+                <td>Statische Werbung</td>
+                <td class="price">€40/Bild</td>
+            </tr>
+            <tr>
+                <td>Dynamische Werbung</td>
+                <td class="price">€60/Szene</td>
+            </tr>
+        </table>
+
+        <div class="note">
+            <strong>Hinweis:</strong> Meta-Werbungen werden in allen erforderlichen Formaten (horizontal/vertikal) und Auflösungen bereitgestellt.
+        </div>
+
+        <h2>Digitale Avatar-Dienste</h2>
+        <table>
+            <tr>
+                <th>Service</th>
+                <th>Preis</th>
+            </tr>
+            <tr>
+                <td>Digitaler Avatar + Multi-Szenen</td>
+                <td class="price">€52</td>
+            </tr>
+            <tr>
+                <td>Virtueller Avatar + Instagram Post Paket</td>
+                <td class="price">€79</td>
+            </tr>
+            <tr>
+                <td>3D Puppen-Design und Druck</td>
+                <td class="price">€195</td>
+            </tr>
+        </table>
+
+        <div class="note">
+            <strong>Hinweis:</strong> Virtueller Avatar + Instagram Post Paket - Mitglieder erhalten fortlaufende Updates für virtuelle Avatare.
+        </div>
+
+        <!-- 在这里强制分页 -->
+        <div class="page-break-after"></div>
+
+        <h2>Privater Designer-Mitgliedschaft</h2>
+        <table>
+            <tr>
+                <th>Service</th>
+                <th>Preis</th>
+            </tr>
+            <tr>
+                <td>Monatsmitgliedschaft</td>
+                <td class="price">€200/Monat (=40 Credits)</td>
+            </tr>
+        </table>
+
+        <div class="benefits">
+            <strong>Mitgliedschaftsvorteile:</strong>
+            <ul>
+                <li>Bildnachbearbeitung, Farbkorrektur, Inhaltsergänzung, Wasserzeichenentfernung (2 Credits pro Aufgabe)</li>
+                <li>3 YouTube-Thumbnails oder Instagram-Micro-Animationen (30 Credits)</li>
+                <li>Ungenutzte Credits können in zeitlich unbegrenzte Credit-basierte Services umgewandelt werden</li>
+            </ul>
+        </div>
+
+        <h2>Credit-basierte Dienste</h2>
+        <table>
+            <tr>
+                <th>Service</th>
+                <th>Benötigte Credits</th>
+            </tr>
+            <tr>
+                <td>Cartoon-Character-Design</td>
+                <td class="price">5-10 Credits</td>
+            </tr>
+            <tr>
+                <td>Ausweisfoto-Design</td>
+                <td class="price">5-10 Credits</td>
+            </tr>
+            <tr>
+                <td>POD-Muster-Design</td>
+                <td class="price">5-10 Credits</td>
+            </tr>
+        </table>
+
+        <div class="footer-info">
+            <strong>Bestgraphic Design Service</strong><br><br>
+            Alle Services beinhalten kostenlose, für die kommerzielle Nutzung freigegebene Schriftarten und Materialien.<br>Optional können Kunden kostenpflichtige Zusatzmaterialien erwerben.<br>
+            © 2026 bestgraphic. Alle Rechte vorbehalten.
+        </div>
+    </div>
+
+    <script>
+        window.onbeforeprint = function() {
+            console.log('Druckvorgang wird gestartet...');
+        };
+    </script>
+</body>
+</html>
