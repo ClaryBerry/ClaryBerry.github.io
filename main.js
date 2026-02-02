@@ -1,4 +1,4 @@
-<script>
+
 (function () {
   const TARGET_TEXT = 'Kontaktiere uns';
   const NEW_TEXT = 'Kontaktiere mich';
@@ -29,4 +29,4 @@
     subtree: true
   });
 })();
-</script>
+
