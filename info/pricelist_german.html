@@ -22,7 +22,7 @@
         
         .a4-container {
             max-width: 180mm;
-            margin: 0 auto;
+            margin: 0mm auto;
         }
         
         h1 {
@@ -48,7 +48,8 @@
             letter-spacing: 0.5px;
             page-break-after: avoid;
         }
-        
+         
+     
    table {
     width: 100%;
     border-collapse: collapse;
@@ -137,13 +138,18 @@
             text-align: center;
             color: #000;
             page-break-inside: avoid;
+            margin-bottom: 100pt;
         }
         
         .footer-info strong {
             font-size: 13pt;
             color: #757AF5;
         }
+          .footer-info big {
+            font-size: 11pt;
+            line-height: 1.6;
         
+        }
         /* 分页控制 */
         .page-break-after {
             page-break-after: always;
@@ -202,6 +208,86 @@
                 page-break-after: always !important;
             }
         }
+        
+   @media (max-width: 768px) {
+    .print-btn {
+        padding: 10px 16px;
+        font-size: 9pt;
+        border-radius: 20px;
+        top: 10px;
+        right: 10px;
+    }
+}     
+        
+        /* AGB 页面样式 */
+        
+.AGB{
+        background: linear-gradient(135deg, #757AF5 0%, #6a6fe8 100%);
+            color: #fff;
+            padding: 12pt 10pt;
+            text-align: left;
+            font-weight: bold;
+            border: none;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+             overflow: hidden;
+             margin-bottom: 12pt;
+            letter-spacing: 0.5px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+.agb-page {
+    page-break-before: always;
+   
+    margin-top: 20pt;
+}
+
+.agb-section {
+    margin-bottom: 16pt;
+}
+
+.agb-article {
+    margin-bottom: 14pt;
+}
+
+.agb-article-title {
+    font-size: 12pt;
+    font-weight: bold;
+    color: #757AF5;
+    margin-bottom: 8pt;
+    border-left: 4px solid #757AF5;
+    padding-left: 10px;
+    page-break-after: avoid;
+}
+
+.agb-paragraph {
+    margin-bottom: 10pt;
+    text-align: justify;
+    line-height: 1.6;
+    page-break-inside: avoid;
+    padding-left: 14px;
+     font-size: 11pt;
+}
+
+.agb-subsection {
+    font-weight: bold;
+    margin-top: 8pt;
+    margin-bottom: 6pt;
+    color: #555;
+    page-break-after: avoid;
+}
+
+.agb-list {
+    margin: 8pt 0 8pt 30pt;
+    font-size: 10pt;
+}
+
+.agb-list li {
+    margin: 5pt 0;
+    line-height: 1.5;
+}
+        
     </style>
 </head>
 <body>
@@ -290,8 +376,6 @@
             <strong>Hinweis:</strong> Virtueller Avatar + Instagram Post Paket - Mitglieder erhalten fortlaufende Updates für virtuelle Avatare.
         </div>
 
-        <!-- 在这里强制分页 -->
-        <div class="page-break-after"></div>
 
         <h2>Privater Designer-Mitgliedschaft</h2>
         <table>
@@ -313,7 +397,8 @@
                 <li>Ungenutzte Credits können in zeitlich unbegrenzte Credit-basierte Services umgewandelt werden</li>
             </ul>
         </div>
-
+ <!-- 在这里强制分页 -->
+        <div class="page-break-after"></div>
         <h2>Credit-basierte Dienste</h2>
         <table>
             <tr>
@@ -343,12 +428,119 @@
         </table>
 
         <div class="footer-info">
+            <strong>Inkludierte Ressourcen</strong><br><br>
+            <big>
+                Alle Services beinhalten kostenlose kommerzielle Schriftarten und Materialien.<br>Kunden können optional kostenpflichtige Materialien hinzukaufen.</big>
+        </div>
+    </div>
+    
+    <!-- 在这里强制分页 -->
+        <div class="page-break-after"></div>
+
+      <!-- AGB 页面开始 -->
+    <div class="a4-container agb-page">
+        <p class="AGB">Allgemeine Geschäftsbedingungen (AGB)</p>
+        
+        <div class="agb-section">
+            <div class="agb-article">
+                <div class="agb-article-title">§1 Geltungsbereich</div>
+                <div class="agb-paragraph">
+                    Diese Allgemeinen Geschäftsbedingungen regeln die vertraglichen Beziehungen zwischen Bestgraphic Design Service (nachfolgend "Auftragnehmer") und den Kunden (nachfolgend "Auftraggeber"). Diese AGB gelten, soweit nicht schriftlich etwas anderes vereinbart.
+                </div>
+            </div>
+
+            <div class="agb-article">
+                <div class="agb-article-title">§2 Vertragsgegenstand und Leistungsumfang</div>
+                <div class="agb-paragraph">
+                    Gegenstand des Vertrags sind Design-Dienstleistungen gemäß Angebot, Preisliste und Auftragsbestätigung.
+
+                </div>
+                <div class="agb-subsection">2.1 Leistungserbringung</div>
+                <div class="agb-paragraph">
+                   Der Auftragnehmer erbringt die Leistungen sorgfältig nach Fachgebietsstandards. Die Leistungszeit richtet sich nach den Vereinbarungen im Einzelvertrag.
+                </div>
+                <div class="agb-subsection">2.2 Mitwirkungspflichten des Auftraggebers</div>
+                <div class="agb-paragraph">
+                    Der Auftraggeber ist verpflichtet, alle für die Erbringung der Leistungen erforderlichen Unterlagen und Informationen rechtzeitig und in geeigneter Form zur Verfügung zu stellen.
+                </div>
+            </div>
+
+            <div class="agb-article">
+                <div class="agb-article-title">§3 Vergütung und Zahlungsbedingungen</div>
+                <div class="agb-paragraph">
+                    Die Vergütung richtet sich nach den im Angebot genannten Preisen. Alle Preise verstehen sich als Netto-Preise (Kleinunternehmerin gemäß § 19 UStG). Es fällt keine Umsatzsteuer an.
+                </div>
+                <div class="agb-subsection">3.1 Zahlungsweise</div>
+                <div class="agb-paragraph">
+                   Für Aufträge bis 100 € wird die volle Summe vorab erbeten. Bei Projekten ab 100 € erfolgt der Start nach 30% Anzahlung. Optional stehen 3-Phasen-Zahlungen zur Verfügung.
+                </div>
+                <div class="agb-subsection">3.2 Zahlungs- und Leistungsverzug</div>
+                <div class="agb-paragraph">
+     Bei verspäteter Zahlung trotz Mahnung werden Inkassomaßnahmen eingeleitet. Von Auftragnehmer (Designer) nicht erbrachte Leistungen werden erstattet. Bei Verschulden des Designers wie z.B. schwerer Termin-Verzögerung kann nach Absprache eine angemessene Entschädigung vereinbart werden.
+                </div>
+            </div>
+
+            <div class="agb-article">
+                <div class="agb-article-title">§4 Urheberrecht und Nutzungsrechte</div>
+                <div class="agb-paragraph">
+                    Nach vollständiger Bezahlung räumt der Auftragnehmer dem Auftraggeber ein einfaches, zeitlich und räumlich unbeschränktes Nutzungsrecht ein. Alle Urheberrechte verbleiben beim Auftragnehmer (§ 31 UrhG).
+                </div>
+                <div class="agb-subsection">4.1 Vorbehalte</div>
+                <div class="agb-paragraph">
+                    Der Auftragnehmer darf die erstellten Werke anonymisiert oder in abgespeckter Form in seinem Portfolio zeigen, sofern keine vertraulichen Informationen preisgegeben werden.
+                </div>
+            </div>
+
+            <div class="agb-article">
+                <div class="agb-article-title">§5 Gewährleistung und Haftung</div>
+                <div class="agb-paragraph">
+                   Der Auftragnehmer haftet für Sach- und Rechtsmängel gemäß gesetzlichen Bestimmungen (2 Jahre). Für vom Auftraggeber selbst beschaffte Materialien (z. B. Bilder, Schriftarten) haftet ausschließlich der Auftraggeber für deren Rechtmäßigkeit und Lizenzgültigkeit.   </div>
+                    
+                <div class="agb-subsection">5.1 Haftungsbeschränkung</div>
+                <div class="agb-paragraph">
+                  Für leichte Fahrlässigkeit haftet der Designer nicht, außer bei Verletzung wesentlicher Vertragspflichten. In diesem Fall ist die Haftung auf den beim Vertragsabschluss vorhersehbaren Schaden beschränkt.
+
+                </div>
+            </div>
+
+            <div class="agb-article">
+                <div class="agb-article-title">§6 Datenschutz</div>
+                <div class="agb-paragraph">
+                    Der Auftragnehmer verarbeitet personenbezogene Daten des Auftraggebers gemäß den Bestimmungen der Datenschutz-Grundverordnung (DSGVO) und des Bundesdatenschutzgesetzes (BDSG). Einzelheiten entnehmen Sie der separaten Datenschutzerklärung.
+                </div>
+            </div>
+
+            <div class="agb-article">
+                <div class="agb-article-title">§7 Stornierung und Kündigung</div>
+                <div class="agb-paragraph">
+                   Vor Projektstart ist jederzeitige Stornierung möglich; nach Arbeitsbeginn nur gemäß "Projekt Beenden" oder "Projekt Pausieren" Klauseln unter Fälligkeit der 30% Anzahlung und Fortschrittsabgeltung. Außerordentliche Kündigung aus wichtigem Grund bleibt unberührt.
+                </div>
+                <div class="agb-subsection">7.1 Mitgliedschaften</div>
+                <div class="agb-paragraph">
+                   Die Mitgliedschaft verlängert sich nicht automatisch. Eine Verlängerung erfolgt nur bei ausdrücklicher Zustimmung durch den Auftraggeber.
+                </div>
+            </div>
+
+            <div class="agb-article">
+                <div class="agb-article-title">§8 Schlussbestimmungen</div>
+                <div class="agb-paragraph">
+                    Änderungen und Ergänzungen dieser AGB bedürfen der Textform. Sollten einzelne Bestimmungen dieser AGB unwirksam sein, wird die Wirksamkeit der übrigen Bestimmungen dadurch nicht berührt.
+                    Erfüllungsort und Gerichtsstand ist der Sitz des Auftragnehmers. Es gilt das Recht der Bundesrepublik Deutschland.
+                </div>
+                <div class="agb-paragraph">
+                    Stand: Februar 2026
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-info">
             <strong>Bestgraphic Design Service</strong><br><br>
-            Alle Services beinhalten kostenlose, für die kommerzielle Nutzung freigegebene Schriftarten und Materialien.<br>Optional können Kunden kostenpflichtige Zusatzmaterialien erwerben.<br>
+          Bei Fragen bitte an:<br>contact@bestgraphic.com<br>
             © 2026 bestgraphic. Alle Rechte vorbehalten.
         </div>
     </div>
-
+    <!-- AGB 页面结束 -->
+    
     <script>
         window.onbeforeprint = function() {
             console.log('Druckvorgang wird gestartet...');
