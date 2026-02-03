@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>设计服务价目表 - Bestgraphic</title>
- <style>
+<style>
         * {
             margin: 0;
             padding: 0;
@@ -22,7 +22,7 @@
         
         .a4-container {
             max-width: 180mm;
-            margin: 0 auto;
+            margin: 0mm auto;
         }
         
         h1 {
@@ -48,7 +48,8 @@
             letter-spacing: 0.5px;
             page-break-after: avoid;
         }
-        
+         
+     
    table {
     width: 100%;
     border-collapse: collapse;
@@ -137,13 +138,18 @@
             text-align: center;
             color: #000;
             page-break-inside: avoid;
+            margin-bottom: 100pt;
         }
         
         .footer-info strong {
             font-size: 13pt;
             color: #757AF5;
         }
+          .footer-info big {
+            font-size: 11pt;
+            line-height: 1.6;
         
+        }
         /* 分页控制 */
         .page-break-after {
             page-break-after: always;
@@ -202,6 +208,86 @@
                 page-break-after: always !important;
             }
         }
+        
+   @media (max-width: 768px) {
+    .print-btn {
+        padding: 10px 16px;
+        font-size: 9pt;
+        border-radius: 20px;
+        top: 10px;
+        right: 10px;
+    }
+}     
+        
+        /* AGB 页面样式 */
+        
+.AGB{
+        background: linear-gradient(135deg, #757AF5 0%, #6a6fe8 100%);
+            color: #fff;
+            padding: 12pt 10pt;
+            text-align: left;
+            font-weight: bold;
+            border: none;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+             overflow: hidden;
+             margin-bottom: 12pt;
+            letter-spacing: 0.5px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+.agb-page {
+    page-break-before: always;
+   
+    margin-top: 20pt;
+}
+
+.agb-section {
+    margin-bottom: 16pt;
+}
+
+.agb-article {
+    margin-bottom: 14pt;
+}
+
+.agb-article-title {
+    font-size: 12pt;
+    font-weight: bold;
+    color: #757AF5;
+    margin-bottom: 8pt;
+    border-left: 4px solid #757AF5;
+    padding-left: 10px;
+    page-break-after: avoid;
+}
+
+.agb-paragraph {
+    margin-bottom: 10pt;
+    text-align: justify;
+    line-height: 1.6;
+    page-break-inside: avoid;
+    padding-left: 14px;
+     font-size: 11pt;
+}
+
+.agb-subsection {
+    font-weight: bold;
+    margin-top: 8pt;
+    margin-bottom: 6pt;
+    color: #555;
+    page-break-after: avoid;
+}
+
+.agb-list {
+    margin: 8pt 0 8pt 30pt;
+    font-size: 10pt;
+}
+
+.agb-list li {
+    margin: 5pt 0;
+    line-height: 1.5;
+}
+        
     </style>
 </head>
 <body>
@@ -294,8 +380,7 @@
             <strong>备注：</strong> 虚拟人像+Instagram帖子套餐 - 会员可获得虚拟头像的持续更新。
         </div>
 
-        <!-- 在这里强制分页 -->
-        <div class="page-break-after"></div>
+   
 
         <h2>私人设计师会员服务</h2>
         <table>
@@ -317,7 +402,9 @@
                 <li>未使用的积分可转换为无时限的积分制服务</li>
             </ul>
         </div>
-
+     <!-- 在这里强制分页 -->
+        <div class="page-break-after"></div>
+        
         <h2>积分制服务</h2>
         <table>
             <tr>
@@ -347,13 +434,120 @@
         </table>
 
         <div class="footer-info">
-            <strong>Bestgraphic 设计服务</strong><br><br>
-            所有服务均包含免费商用字体和素材。<br>
-            客户可选择购买付费素材。<br><br>
-            © 2026 bestgraphic. 版权所有。
+            <strong>创意素材</strong><br><br><big>
+            所有服务均包含免费商用字体和素材。</big>
+            客户可选择性购买付费资源。
         </div>
     </div>
 
+      <!-- AGB 页面开始 -->
+    <div class="a4-container agb-page">
+        <p class="AGB">平面设计服务通用条款</p>
+        
+        <div class="agb-section">
+            <div class="agb-article">
+                <div class="agb-article-title">§1 适用范围</div>
+                <div class="agb-paragraph">
+              本条款适用于乙方（即"Bestgraphic设计服务"，下称"设计方"）与甲方（即"客户"，下称"委托方"）之间订立的平面设计服务合同关系。除双方另有书面约定外，本条款始终有效。
+                </div>
+            </div>
+
+            <div class="agb-article">
+                <div class="agb-article-title">§2 服务内容与范围</div>
+                <div class="agb-paragraph">
+                设计方应按照其提供的报价单、价目表及订单确认函中所列明的设计服务内容履行合同义务。
+
+                </div>
+                <div class="agb-subsection">2.1 服务标准</div>
+                <div class="agb-paragraph">
+                  设计方应遵循行业通用标准，以专业审慎态度提供服务。具体服务周期以单项合同约定为准。
+                </div>
+                <div class="agb-subsection">2.2 委托方协作义务</div>
+                <div class="agb-paragraph">
+                  委托方应及时、完整地提供设计方履行服务所需的一切资料与信息。
+                </div>
+            </div>
+
+            <div class="agb-article">
+                <div class="agb-article-title">§3 费用与支付</div>
+                <div class="agb-paragraph">
+                  服务费用以设计方报价为准。所有报价均为不含税净价（设计方为德国《增值税法》第19条界定的免征增值税主体），不另加增值税。
+                </div>
+                <div class="agb-subsection">3.1 支付方式</div>
+                <div class="agb-paragraph">
+                <li>订单金额低于100欧元时，需全额预付。</li>
+                  <li> 项目金额满100欧元及以上时，需支付30%预付款后启动服务。</li>
+                 <li>可选择分三期支付的方案。</li>
+                  
+                </div>
+                <div class="agb-subsection">3.2 逾期与违约处理</div>
+                <div class="agb-paragraph">
+     委托方经提醒仍未按期付款，设计方有权采取催收措施。因设计方原因（如延误交付）导致服务拖欠，经协商可退还相应费用或给予合理补偿。
+                </div>
+            </div>
+
+            <div class="agb-article">
+                <div class="agb-article-title">§4 著作权与使用权</div>
+                <div class="agb-paragraph">
+                    委托方全额付款后，将获得设计方授予的不受时间、地区限制的作品使用许可。设计作品的著作权始终归设计方所有（依据德国《著作权法》第31条）。
+                </div>
+                <div class="agb-subsection">4.1 权利保留</div>
+                <div class="agb-paragraph">
+                  设计方有权在隐去敏感信息或进行节选后，将成品用于自身作品集展示。
+                </div>
+            </div>
+
+            <div class="agb-article">
+                <div class="agb-article-title">§5 质量保证与责任</div>
+                <div class="agb-paragraph">
+                   设计方对作品质量及合法合规性承担法定保证责任（保证期两年）。委托方自行提供的素材（如图片、字体等），其合法性及授权有效性由委托方独立负责。   </div>
+                    
+                <div class="agb-subsection">5.1 责任限制</div>
+                <div class="agb-paragraph">
+                因设计方轻微疏漏造成的损失，除违反合同核心义务外，设计方不承担责任；若违反核心义务，其赔偿责任以合同订立时可预见的损失为限。
+
+                </div>
+            </div>
+
+            <div class="agb-article">
+                <div class="agb-article-title">§6 数据保护</div>
+                <div class="agb-paragraph">
+                    设计方将依据欧盟《通用数据保护条例》（GDPR）及德国《联邦数据保护法》（BDSG）处理委托方提供的个人数据。具体细则参见独立的数据保护声明文件。
+                </div>
+            </div>
+
+            <div class="agb-article">
+                <div class="agb-article-title">§7 合同终止与暂停</div>
+                <div class="agb-paragraph">
+                  项目启动前可随时取消委托；启动后仅可依据"项目终止"或"项目暂停"条款处理，且需结清30%预付款及已完成服务的费用。因严重事由导致的单方解除权不受影响。
+                </div>
+                <div class="agb-subsection">7.1 会员服务</div>
+                <div class="agb-paragraph">
+                   会员服务期满后不自动续期，续期需经委托方明确同意。
+                </div>
+            </div>
+
+            <div class="agb-article">
+                <div class="agb-article-title">§8 其他</div>
+                <div class="agb-paragraph">
+                    本条款的修改或补充须采用书面形式。如部分条款无效，不影响其余条款效力。合同履行地与争议管辖法院均为设计方所在地。适用法律为德意志联邦共和国法律。
+                </div>
+                <div class="agb-paragraph">
+                   （版本：2026年2月）
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-info">
+            <strong>Bestgraphic Design Service</strong><br><br>
+          咨询请联络:<br>contact@bestgraphic.work<br>
+            © 2026 bestgraphic. Alle Rechte vorbehalten.
+        </div>
+    </div>
+    <!-- AGB 页面结束 -->
+    
+    
+    
     <script>
         window.onbeforeprint = function() {
             console.log('打印流程已启动...');
